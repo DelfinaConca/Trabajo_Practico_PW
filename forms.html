@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="formulario.css">
+    <title>Pagina oficial de donaciones - Realiza tu donacion </title>
+</head>
+
+<body>
+    
+
+    <header>
+        <h1>Doná, se parte del cambio </h1>
+        <p style="font-weight: bold;">Contribui con tu donacion aca!</p>
+        <form action="realizado.html"></form>
+    </header>
+
+   
+
+    <section>
+        <form action="">
+            <fieldset>
+                <legend> Datos personales</legend>
+                <label for="nombre">
+                    Nombre:
+                </label>
+                <input type="text" name="nombre" tabindex="1">
+
+                <br>
+                <label for="apellido"> Apellido:</label>
+                <input type="text" name="apellido" tabindex="2">
+
+                <br>
+                <label for="tel">Telefono:</label>
+                <input type="number" name="tel" tabindex="3">
+
+                <br>
+                <label for="mail">Mail:</label>
+                <input type="email" name="mail" tabindex="4">
+
+                <br>
+                <br>
+
+                
+
+                
+            </fieldset>
+
+
+            <div>
+
+                <fieldset>
+                    <legend>Tipo de donacion</legend>
+                    <input type="checkbox" name="variedad" value="dinero">Dinero
+                   
+                    
+                    <br>
+                    <br>
+                    <input type="checkbox" name="variedad" value="ropa">Ropa
+                   
+                    <br>
+                    <br>
+                    <input type="checkbox" name="variedad" value="libros">Libros o juguetes
+                    
+                    <br>
+                    <br>
+                    <input type="checkbox" name="variedad" value="alimentos">Alimentos no perecederos
+                    
+                    <br>
+                    <br>
+                    <input type="checkbox" name="variedad" value="otros">Otros
+                    
+                    <br>
+                    <br>
+                   
+                   
+                    
+                </fieldset>
+            
+            
+    
+        </div>
+
+            <fieldset>
+                <legend> Completa aca si elegiste dinero!</legend>
+
+                <br>
+                <label for="monto">Monto:</label>
+                <input type="number" min="0"  step="0.01">
+
+
+                <br>
+
+                <label for="tipopago">Tipo Pago:</label>
+                <input type="radio" name="tipop">Debito
+                <input type="radio" name="tipop">Credito
+
+                <br>
+                <label for="tarjeta">Tarjeta:</label>
+                <select name="tarjeta" id="">
+                    <option value="amex">Amex</option>
+                    <option value="visa" selected>Visa</option>
+                    <option value="master">Master</option>
+
+                </select>
+
+                
+
+                <br>
+                <label for="comentario">Comentarios:</label>
+                <textarea name="comentario" id="" cols="15" rows="10" maxlength="255"></textarea>
+                
+
+                </textarea>
+               
+
+                </label>
+
+                <br>
+                <br>
+
+                <legend> Te redigiremos a otra pagina para que realices tu pago online!</legend>
+
+            </fieldset>
+
+            <input type="submit" value="Realizar donacion!">
+        </form>
+
+    </section>
+
+
+</body>
+</html>
+
+
+
+
+  
