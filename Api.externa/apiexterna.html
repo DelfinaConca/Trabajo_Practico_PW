@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Información de Criptomonedas</title>
+</head>
+<body>
+    <div id="crypto-data">
+    </div>
+
+    <script>
+        const apiUrl = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd';
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const bitcoinPrice = data.bitcoin.usd;
+
+                document.getElementById('crypto-data').innerHTML = `
+                    <h2>Precio de Bitcoin (USD): $${bitcoinPrice}</h2>
+                `;
+            })
+            .catch(error => {
+                console.error('Error al obtener datos de la API:', error);
+                document.getElementById('crypto-data').textContent = 'Error al cargar datos de criptomonedas';
+            });
+    </script>
+</body>
+</html>
