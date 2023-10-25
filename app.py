@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, redirect, url_for
 
 app = Flask(__name__)
 
@@ -28,22 +28,23 @@ def getpoliticasdeprivacidad():
 def getdonaciones():
     return jsonify ({'donaciones': donaciones})
 
-@app.route('/form')
+@app.route('/form', methods=['GET', 'POST'])
 def mostrar_formulario():
+    if request.method == 'POST':
+       
+        nombre = request.form['nombre']
+        cantidad = request.form['cantidad']
+
+       
+        donaciones.append({'nombre': nombre, 'cantidad': cantidad})
+
+        return redirect(url_for('confirmacion'))
+
     return render_template('formulario.html')
 
-# Endpoint para procesar la donación y agregarla al archivo donaciones.py
-@app.route('/donar', methods=['POST'])
-def donar():
-    criptomoneda = request.form.get('criptomoneda')
-    cantidad = request.form.get('cantidad')
-
-    # Agregar la donación al archivo donaciones.py
-    from donaciones import donaciones  # Importar la lista de donaciones desde donaciones.py
-    donaciones.append({"criptomoneda": criptomoneda, "cantidad": cantidad})
-
-    return "Donación exitosa"
-
+@app.route('/confirmacion')
+def confirmacion():
+    return "Gracias por tu donación."
 
 if __name__ == '__main__':
     app.run(debug=True, port=4000)
