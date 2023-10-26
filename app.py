@@ -11,6 +11,14 @@ from politicasdeprivacidad import politicasdeprivacidad, informacionquerecopilam
 def home():
     return render_template ("home.html")
 
+@app.route('/cryptos/<crypto_code>', methods=['GET'])
+def get_crypto_by_code(crypto_code):
+    for crypto in cryptos:
+        if crypto['codigo'] == crypto_code:
+            return jsonify({'crypto': crypto})
+
+    return jsonify({'error': 'Criptomoneda no encontrada'}), 404
+
 @app.route('/cryptos', methods=['GET'])
 def getcryptos():
     codigo = request.args.get('codigo')
