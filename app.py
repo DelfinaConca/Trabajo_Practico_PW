@@ -11,9 +11,20 @@ from politicasdeprivacidad import politicasdeprivacidad, informacionquerecopilam
 def home():
     return render_template ("home.html")
 
-@app.route('/cryptos')
+@app.route('/cryptos', methods=['GET'])
 def getcryptos():
-    return jsonify({'cryptos': cryptos})
+    codigo = request.args.get('codigo')
+    if codigo:
+        
+        for crypto in cryptos:
+            if crypto['codigo'] == codigo:
+                return jsonify({'crypto': crypto})
+        
+
+        return jsonify({'error': 'Criptomoneda no encontrada'}), 404
+    else:
+     
+        return jsonify({'cryptos': cryptos})
 
 @app.route('/politicas-y-terminos-de-uso')
 def getpoliticasyterminosdeuso():
@@ -31,16 +42,25 @@ def getdonaciones():
 @app.route('/form', methods=['GET', 'POST'])
 def mostrar_formulario():
     if request.method == 'POST':
-       
         nombre = request.form['nombre']
         cantidad = request.form['cantidad']
+        variedad = request.form['variedad']
 
-       
-        donaciones.append({'nombre': nombre, 'cantidad': cantidad})
+        donacion = {'nombre': nombre, 'cantidad': cantidad, 'variedad': [variedad]}
+
+        if variedad == "dinero":
+            opcionesDinero = request.form['opcionesDinero']
+            donacion['opcionesDinero'] = opcionesDinero
+        elif variedad == "cryptos":
+            opcionesCryptos = request.form['opcionesCryptos']
+            donacion['opcionesCryptos'] = opcionesCryptos
+
+        donaciones.append(donacion)
 
         return redirect(url_for('confirmacion'))
 
     return render_template('formulario.html')
+
 
 @app.route('/confirmacion')
 def confirmacion():

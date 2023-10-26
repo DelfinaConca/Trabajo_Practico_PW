@@ -3,8 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="formulario.css">
+    <link rel="stylesheet" href="../static/css/formulario.css">
     <title>Pagina oficial de donaciones - Realiza tu donacion </title>
+
+    <script>
+     function mostrarOpciones() {
+            var tipoDonacion = document.querySelector('input[name="variedad"]:checked').value;
+            var opcionesDinero = document.getElementById('opciones-dinero');
+            var opcionesCryptos = document.getElementById('opciones-cryptos');
+            var opcionesDivisa = document.getElementById('opciones-divisa');
+
+            if (tipoDonacion === "dinero") {
+                opcionesDinero.style.display = "block";
+                opcionesCryptos.style.display = "none";
+                opcionesDivisa.style.display = "block";
+            } else if (tipoDonacion === "cryptos") {
+                opcionesDinero.style.display = "none";
+                opcionesCryptos.style.display = "block";
+                opcionesDivisa.style.display = "none";
+            } else {
+                opcionesDinero.style.display = "none";
+                opcionesCryptos.style.display = "none";
+                opcionesDivisa.style.display = "none";
+            }
+        }
+
+        function mostrarMensaje() {
+            var seleccionDivisa = document.querySelector('input[name="opciones-dinero"]:checked');
+
+            if (seleccionDivisa) {
+                var tipoPago = document.querySelectorAll('input[name="tipop"]');
+                var tarjetaSelect = document.getElementById('tarjeta');
+                var comentarios = document.querySelector('textarea[name="comentario"]').value;
+
+                
+                var tipoPagoSeleccionado;
+                for (var i = 0; i < tipoPago.length; i++) {
+                    if (tipoPago[i].checked) {
+                        tipoPagoSeleccionado = tipoPago[i].value;
+                        break;
+                    }
+                }
+
+                var tarjetaSeleccionada = tarjetaSelect.value;
+
+       
+                var mensaje = "Te redirigiremos a otra página para que realices tu pago online.";
+                alert(mensaje);
+
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -51,10 +100,43 @@
             <div>
 
                 <fieldset>
-                    <legend>Tipo de donacion</legend>
-                    <input type="checkbox" name="variedad" value="dinero">Dinero
-                   
-                    
+                    <legend>Tipo de donación</legend>
+        <input type="radio" name="variedad" value="dinero" onclick="mostrarOpciones()">Dinero
+        <input type="radio" name="variedad" value="cryptos" onclick="mostrarOpciones()">Cryptos
+        <br>
+        <div id="opciones-dinero" style="display: none;">
+            <p>Selecciona una opción:</p>
+            <input type="radio" name="opcionesDinero" value="dolares">Dólares
+            <input type="radio" name="opcionesDinero" value="pesos">Pesos Argentinos
+        </div>
+        <div id="opciones-cryptos" style="display: none;">
+            <p>Selecciona una criptomoneda:</p>
+            <input type="radio" name="opcionesCryptos" value="bitcoin">Bitcoin
+            <input type="radio" name="opcionesCryptos" value="ethereum">Ethereum
+            <input type="radio" name="opcionesCryptos" value="cardano">Cardano
+            <input type="radio" name="opcionesCryptos" value="tether">Tether
+            <input type="radio" name="opcionesCryptos" value="dogecoin">Dogecoin
+        </div>
+        <div id="opciones-divisa" style="display: none;">
+            <br>
+            <label for="tipopago">Tipo Pago:</label>
+            <input type="radio" name="tipop">Debito
+            <input type="radio" name="tipop">Credito
+            <br>
+            <label for="tarjeta">Tarjeta:</label>
+            <select name="tarjeta" id="tarjeta">
+                <option value="amex">Amex</option>
+                <option value="visa" selected>Visa</option>
+                <option value="master">Master</option>
+            </select>
+            <br>
+            <label for="comentario">Comentarios:</label>
+            <textarea name="comentario" id="" cols="15" rows="10" maxlength="255"></textarea>
+            <br>
+        </div>
+        <legend>Te redigiremos a otra página para que realices tu pago online!</legend>
+    </fieldset>
+    <button onclick="mostrarMensaje()">Continuar</button>
                     <br>
                     <br>
                     <input type="checkbox" name="variedad" value="ropa">Ropa
@@ -83,44 +165,14 @@
         </div>
 
             <fieldset>
-                <legend> Completa aca si elegiste dinero!</legend>
+                <legend> Completa aca la cantidad</legend>
 
                 <br>
                 <label for="cantidad">Cantidad:</label>
                 <input type="number" name="cantidad" min="0"  step="0.01">
 
-
-                <br>
-
-                <label for="tipopago">Tipo Pago:</label>
-                <input type="radio" name="tipop">Debito
-                <input type="radio" name="tipop">Credito
-
-                <br>
-                <label for="tarjeta">Tarjeta:</label>
-                <select name="tarjeta" id="">
-                    <option value="amex">Amex</option>
-                    <option value="visa" selected>Visa</option>
-                    <option value="master">Master</option>
-
-                </select>
-
-                
-
-                <br>
-                <label for="comentario">Comentarios:</label>
-                <textarea name="comentario" id="" cols="15" rows="10" maxlength="255"></textarea>
-                
-
-                </textarea>
-               
-
-                </label>
-
                 <br>
                 <br>
-
-                <legend> Te redigiremos a otra pagina para que realices tu pago online!</legend>
 
             </fieldset>
 
