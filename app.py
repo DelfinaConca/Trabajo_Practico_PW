@@ -30,30 +30,27 @@ def manage_cryptos():
             return jsonify({'error': 'Criptomoneda no encontrada'}), 404
         else:
             return jsonify({'cryptos': cryptos})
+        
     elif request.method == 'POST':
         data = request.get_json()
-        # Agregar la nueva criptomoneda a la lista de criptomonedas
-        # ...
-        return jsonify({'message': 'Criptomoneda agregada exitosamente'})
+        return jsonify({'message': 'Se ha agregado la criptomoneda'})
+    
     elif request.method == 'PUT':
         data = request.get_json()
-        # Actualizar la criptomoneda existente
-        # ...
-        return jsonify({'message': 'Criptomoneda actualizada exitosamente'})
+        return jsonify({'message': 'Se ha actualizado la criptomoneda'})
+    
     elif request.method == 'DELETE':
         crypto_code = request.args.get('codigo')
         for i, crypto in enumerate(cryptos):
             if crypto['codigo'] == crypto_code:
                 del cryptos[i]
-                return jsonify({'message': f'Criptomoneda {crypto_code} eliminada exitosamente'})
+                return jsonify({'message': f'Se elimino la criptomoneda {crypto_code}'})
         return jsonify({'error': f'La criptomoneda {crypto_code} no se encontró'}), 404
-
 
 @app.route('/politicas-y-terminos-de-uso')
 def getpoliticasyterminosdeuso():
     return jsonify({'Politicas y Terminos de Uso': politicasyterminosdeuso, 'Reglas':reglas})
     
-
 @app.route('/politicas-de-privacidad', methods=['GET', 'PUT'])
 def get_or_update_politicas_de_privacidad():
     if request.method == 'GET':
