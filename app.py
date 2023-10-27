@@ -19,29 +19,69 @@ def get_crypto_by_code(crypto_code):
 
     return jsonify({'error': 'Criptomoneda no encontrada'}), 404
 
-@app.route('/cryptos', methods=['GET'])
-def getcryptos():
-    codigo = request.args.get('codigo')
-    if codigo:
-        
-        for crypto in cryptos:
-            if crypto['codigo'] == codigo:
-                return jsonify({'crypto': crypto})
-        
+@app.route('/cryptos', methods=['GET', 'POST', 'PUT', 'DELETE'])
+def manage_cryptos():
+    if request.method == 'GET':
+        codigo = request.args.get('codigo')
+        if codigo:
+            for crypto in cryptos:
+                if crypto['codigo'] == codigo:
+                    return jsonify({'crypto': crypto})
+            return jsonify({'error': 'Criptomoneda no encontrada'}), 404
+        else:
+            return jsonify({'cryptos': cryptos})
+    elif request.method == 'POST':
+        data = request.get_json()
+        # Agregar la nueva criptomoneda a la lista de criptomonedas
+        # ...
+        return jsonify({'message': 'Criptomoneda agregada exitosamente'})
+    elif request.method == 'PUT':
+        data = request.get_json()
+        # Actualizar la criptomoneda existente
+        # ...
+        return jsonify({'message': 'Criptomoneda actualizada exitosamente'})
+    elif request.method == 'DELETE':
+        crypto_code = request.args.get('codigo')
+        for i, crypto in enumerate(cryptos):
+            if crypto['codigo'] == crypto_code:
+                del cryptos[i]
+                return jsonify({'message': f'Criptomoneda {crypto_code} eliminada exitosamente'})
+        return jsonify({'error': f'La criptomoneda {crypto_code} no se encontró'}), 404
 
-        return jsonify({'error': 'Criptomoneda no encontrada'}), 404
-    else:
-     
-        return jsonify({'cryptos': cryptos})
 
 @app.route('/politicas-y-terminos-de-uso')
 def getpoliticasyterminosdeuso():
     return jsonify({'Politicas y Terminos de Uso': politicasyterminosdeuso, 'Reglas':reglas})
     
 
-@app.route('/politicas-de-privacidad')
-def getpoliticasdeprivacidad():
-    return jsonify({ 'Politicas de Privacidad': politicasdeprivacidad,'Info. que recopilamos':informacionquerecopilamos,"Uso de la info.": usodelainformacion, "Compartir info.": compartirinformacion, "Seguridad de datos": seguridaddedatos, "Cookies": cookiesytecnologiassimilares, "Cambios en la politica de privacidad": cambiosenlapoliticadeprivacidad, "Contacto": contacto })
+@app.route('/politicas-de-privacidad', methods=['GET', 'PUT'])
+def get_or_update_politicas_de_privacidad():
+    if request.method == 'GET':
+        return jsonify({
+            'Politicas de Privacidad': politicasdeprivacidad,
+            'Info. que recopilamos': informacionquerecopilamos,
+            "Uso de la info.": usodelainformacion,
+            "Compartir info.": compartirinformacion,
+            "Seguridad de datos": seguridaddedatos,
+            "Cookies": cookiesytecnologiassimilares,
+            "Cambios en la politica de privacidad": cambiosenlapoliticadeprivacidad,
+            "Contacto": contacto
+        })
+    
+    elif request.method == 'PUT':
+        data = request.get_json()
+        nuevo_contacto = data.get("Contacto")
+        contacto[0] = nuevo_contacto
+        return jsonify({
+            'Politicas de Privacidad': politicasdeprivacidad,
+            'Info. que recopilamos': informacionquerecopilamos,
+            "Uso de la info.": usodelainformacion,
+            "Compartir info.": compartirinformacion,
+            "Seguridad de datos": seguridaddedatos,
+            "Cookies": cookiesytecnologiassimilares,
+            "Cambios en la politica de privacidad": cambiosenlapoliticadeprivacidad,
+            "Contacto": contacto
+        })
 
 @app.route('/donaciones', methods=['GET'])
 def getdonaciones():
@@ -70,9 +110,11 @@ def mostrar_formulario():
     return render_template('formulario.html')
 
 
-@app.route('/confirmacion')
-def confirmacion():
-    return "Gracias por tu donación."
+@app.route('/confirmacion', methods=['POST'])
+def recibir_confirmacion():
+    data = request.get_json()
+    mensaje = data.get("mensaje")
+    return "Gracias por tu donación. " + mensaje
 
 if __name__ == '__main__':
     app.run(debug=True, port=4000)
