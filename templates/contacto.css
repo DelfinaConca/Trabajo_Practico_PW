@@ -1,0 +1,58 @@
+/* Estilos para la sección "Contacto y Redes Sociales" */
+.contacto-redes {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px;
+  }
+  
+  .contacto-redes h2 {
+    font-size: 24px;
+  }
+  
+  .contacto, .redes-sociales {
+    margin-top: 20px;
+  }
+  
+  .contacto h3, .redes-sociales h3 {
+    font-size: 20px;
+  }
+  
+  .contacto p, .redes-sociales p {
+    font-size: 16px;
+  }
+  
+  .contacto ul, .redes-sociales ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .contacto a, .redes-sociales a {
+    color: #0074d9;
+    text-decoration: none;
+  }
+  
+  .contacto a:hover, .redes-sociales a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Estilos para el encabezado y pie de página (los mismos que en los ejemplos anteriores) */
+  header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  header h1 {
+    font-size: 32px;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  

@@ -1,0 +1,41 @@
+
+.como-donar {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px;
+  }
+  
+  .como-donar h2 {
+    font-size: 24px;
+  }
+  
+  .como-donar p {
+    font-size: 16px;
+  }
+  
+  .como-donar ol {
+    list-style-type: decimal;
+    margin-left: 20px;
+  }
+  
+  /* Estilos para el encabezado y pie de página */
+  header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  header h1 {
+    font-size: 32px;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  

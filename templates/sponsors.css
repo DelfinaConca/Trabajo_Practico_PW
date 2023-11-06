@@ -1,0 +1,44 @@
+/* Estilos para la sección "Sponsors" */
+.sponsors {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px;
+  }
+  
+  .sponsors h2 {
+    font-size: 24px;
+  }
+  
+  .sponsor {
+    margin-top: 20px;
+  }
+  
+  .sponsor img {
+    max-width: 100%;
+  }
+  
+  .sponsor p {
+    font-size: 16px;
+  }
+  
+  /* Estilos para el encabezado y pie de página (los mismos que en el ejemplo anterior) */
+  header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  header h1 {
+    font-size: 32px;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  
