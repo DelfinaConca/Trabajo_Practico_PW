@@ -49,7 +49,7 @@ footer {
     padding: 10px 0;
 }
 
-/* Estilos específicos para la sección de Importancia de Donar */
+
 #importancia-de-donar {
     background-color: #9ec6e6;
     color: #111010;
@@ -58,18 +58,18 @@ footer {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-/* Estilos para los enlaces dentro de las secciones */
+
 section a {
     color: #0066cc;
     text-decoration: underline;
 }
 
-/* Agregar estilos adicionales según sea necesario */
+
 
 
 
 .imagen-derecha {
     float: right;
     margin: 10px;
-    /* Otros estilos según sea necesario */
+    
 }
