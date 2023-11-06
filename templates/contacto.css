@@ -1,4 +1,4 @@
-/* Estilos para la sección "Contacto y Redes Sociales" */
+
 .contacto-redes {
     background-color: #f4f4f4;
     padding: 20px;
@@ -37,17 +37,32 @@
     text-decoration: underline;
   }
   
-  /* Estilos para el encabezado y pie de página (los mismos que en los ejemplos anteriores) */
+  
   header {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 10px;
-  }
-  
-  header h1 {
-    font-size: 32px;
-  }
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
   
   footer {
     background-color: #333;
