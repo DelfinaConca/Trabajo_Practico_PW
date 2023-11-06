@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="formulario.css">
+    <link rel="stylesheet" href="../static/formulario.css">
     <title>Pagina oficial de donaciones - Realiza tu donacion </title>
 
     <script>
@@ -127,8 +127,7 @@
                             const bitcoinPrice = data.bitcoin.usd;
             
                             document.getElementById('crypto-data').innerHTML = `
-                                <h2>Precio de Bitcoin (USD): $${bitcoinPrice}</h2>
-                            `;
+                                <h2>Precio de Bitcoin (USD): $${bitcoinPrice}</h2>`;
                         })
                         .catch(error => {
                             console.error('Error al obtener datos de la API:', error);
@@ -161,41 +160,30 @@
             <textarea name="comentario" id="" cols="15" rows="10" maxlength="255"></textarea>
             <br>
         </div>
-        <legend>Te redigiremos a otra página para que realices tu pago online!</legend>
     </fieldset>
-    <button onclick="mostrarMensaje()">Continuar</button>
-                    <br>
-                    <br>
-                    <input type="checkbox" name="variedad" value="ropa">Ropa
-                   
-                    <br>
-                    <br>
-                    <input type="checkbox" name="variedad" value="libros">Libros o juguetes
-                    
-                    <br>
-                    <br>
-                    <input type="checkbox" name="variedad" value="alimentos">Alimentos no perecederos
-                    
-                    <br>
-                    <br>
-                    <input type="checkbox" name="variedad" value="otros">Otros
-                    
-                    <br>
-                    <br>
-                   
-                   
-                    
-                </fieldset>
             
-            
-    
         </div>
 
+            <fieldset>
+                <legend> Fundación a la que quiere donar: </legend>
+               
+                <br>
+                <label for="fundacion"></label>
+                <select id="fundacion" name="elemento">
+                    <option value="opcion1">Fundacion Unicef</option>
+                    <option value="opcion1">Fundacion Caritas</option>
+                    <option value="opcion1">Fundacion Techo</option>
+                </select>
+
+                <br>
+                <br>
+
+            </fieldset>
             <fieldset>
                 <legend> Completa aca la cantidad</legend>
                
                 <br>
-                <label for="cantidad">Cantidad:</label>
+                <label for="cantidad"></label>
                 <input type="number" name="cantidad" min="0"  step="0.01">
 
                 <br>
