@@ -1,32 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Quiénes Somos</title>
-    <link rel="stylesheet" href="../static/quienes-somos.css">
-</head>
-<body>
-    <header>
-        <h1>Quienes somos</h1>
-        <nav>
-            <ul>
-                <li><a href="home.html" target="_blank">Home</a></li>
-                <li><a href="quienes-somos.html" target="_blank">Quiénes Somos</a></li>                
-                <li><a href="como-donar.html" target="_blank">Cómo Donar</a></li>
-                <li><a href="sponsors.html" target="_blank">Sponsors</a></li>
-                <li><a href="contacto.html" target="_blank">Contacto y Redes Sociales</a></li>
-                <li><a href="fundaciones.html" target="_blank">Nuestras Fundaciones</a></li>
-               
-            </ul>
-        </nav>
-    </header>
-    
-    <p>
-        
-        
+<template>
         <h3>¿Quiénes Somos?</h3>
         
-        En Donaciones en Línea, somos una organización sin fines de lucro comprometida con la causa de mejorar la vida de las personas y comunidades más vulnerables. Nuestra pasión es brindar apoyo y esperanza a aquellos que enfrentan desafíos en sus vidas.
+        En Donaciones en Línea, somos una organización sin fines de lucro comprometida con la causa de mejorar la vida de las personas y comunidades más vulnerables mediante la posibilidad de poder colaborar con Unicef, Caritas y Techo ya sea con dinero o criptomonedas. Nuestra pasión es brindar apoyo y esperanza a aquellos que enfrentan desafíos en sus vidas.
         
         <h4>Nuestra Misión </h4>
         
@@ -49,7 +24,75 @@
         - Empoderamiento: Capacitamos a las personas para que se conviertan en agentes de cambio en sus propias vidas y comunidades.
        <br>
         - Compromiso:Estamos comprometidos en nuestro esfuerzo constante por hacer el bien y marcar la diferencia.
-        
-        
-</body>
-</html>
+    
+</template>
+
+<script>
+
+export default {
+
+}
+</script>
+
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+section {
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+section h2 {
+    color: #333;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+section a {
+    color: #0066cc;
+    text-decoration: underline;
+}
+
+
+</style>

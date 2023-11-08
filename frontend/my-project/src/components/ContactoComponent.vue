@@ -1,4 +1,39 @@
+<template>
+    <section class="contacto-redes">
+    
 
+    <div class="contacto">
+      <h3>Contacto</h3>
+      <p>Puede ponerse en contacto con nosotros a través de:</p>
+      <ul>
+        <li>Correo electrónico: <a href="mailto:info@donacionesenlinea.com">info@donacionesenlinea.com</a></li>
+        <li>Teléfono: +1-123-456-7890</li>
+      </ul>
+    </div>
+
+    <div class="redes-sociales">
+      <h3>Redes Sociales</h3>
+      <p>Síganos en nuestras redes sociales para mantenerse al día:</p>
+      <ul>
+        <li><a href="https://facebook.com/donacionesenlinea">Facebook</a></li>
+        <li><a href="https://twitter.com/donacionesenlinea">Twitter</a></li>
+        <li><a href="https://instagram.com/donacionesenlinea">Instagram</a></li>
+      </ul>
+    </div>
+  </section>
+
+
+</template>
+
+<script>
+
+export default {
+
+}
+</script>
+
+
+<style>
 .contacto-redes {
     background-color: #f4f4f4;
     padding: 20px;
@@ -75,4 +110,6 @@ nav a {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-}
+}   
+
+</style>

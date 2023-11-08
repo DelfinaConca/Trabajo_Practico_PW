@@ -1,34 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Donaciones en Línea</title>
-    <link rel="stylesheet" type="text/css" href="../static/home.css">
-</head>
-<body>
-    <header>
-        <h1>Dona online</h1>
-        <nav>
-            <ul>
-                <li><a href="home.html" target="_blank">Home</a></li>
-                <li><a href="quienes-somos.html" target="_blank">Quiénes Somos</a></li>                
-                <li><a href="como-donar.html" target="_blank">Cómo Donar</a></li>
-                <li><a href="sponsors.html" target="_blank">Sponsors</a></li>
-                <li><a href="contacto.html" target="_blank">Contacto y Redes Sociales</a></li>
-                <li><a href="fundaciones.html" target="_blank">Nuestras Fundaciones</a></li>
-               
-            </ul>
-        </nav>
-    </header>
-
-
-  
+<template>
+      
 
     <section id="importancia-de-donar">
         <h2>La Importancia de Donar: Contribuyendo al Bienestar común </h2>
-        <p>
             
-<img src="imagenes/accion-social.webp" alt="Imagen Accion Social" width="350" class="imagen-derecha">
+<img src="../../public/accion-social.webp" alt="Imagen Accion Social" width="350" class="imagen-derecha">
 
 <br>
 
@@ -64,7 +40,7 @@ La donación de dinero y bienes es un acto de generosidad que desempeña un pape
 
 En resumen, donar dinero y bienes es una práctica que trasciende fronteras y culturas, generando un impacto positivo en las vidas de las personas y en la sociedad en su conjunto. Cada contribución, sin importar su tamaño, tiene el potencial de marcar la diferencia. Al adoptar la filantropía como parte de nuestra vida, colaboramos en la construcción de un mundo más compasivo y justo, donde todos tengan la oportunidad de prosperar. La importancia de donar no puede ser subestimada, ya que su influencia se siente a nivel local, nacional y global.
      
-<img src="imagenes/manos.png" alt="Solidaridad" width="150" class="imagen-derecha">
+<img src="../../public/manos.png" alt="Solidaridad" width="150" class="imagen-derecha">
 
     <br>
 
@@ -73,12 +49,93 @@ En resumen, donar dinero y bienes es una práctica que trasciende fronteras y cu
     <section>
         <h2>Presiona aca y dona en menos de 1 minuto!</h2>
         <h4>
-            <li><a href="formulario.html" target="_blank">Formulario para donaciones</a></li>
+            <li><router-link to="/formulario" target="_blank">Formulario para donaciones</router-link></li>
         </h4>
     </section>
+
+</template>
+
+
+<script>
+
+export default {
+
+}
+</script>
+
+
+<style>
+.template{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+section {
+    padding: 20px;
+    background-color: #f2f2f2;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+section h2 {
+    color: #333;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#importancia-de-donar {
+    background-color: #9ec6e6;
+    color: #111010;
+    border: 1px solid #357a38;
+    padding: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+section a {
+    color: #0066cc;
+    text-decoration: underline;
+}
+
+
+
+
+.imagen-derecha {
+    float: right;
+    margin: 10px;
     
-    <footer>
-        <p>&copy; 2023 Dona online</p>
-    </footer>
-</body>
-</html>
+}
+
+</style>
