@@ -84,7 +84,7 @@ def get_or_update_politicas_de_privacidad():
 def getdonaciones():
     return jsonify ({'donaciones': donaciones})
 
-@app.route('/form', methods=['GET', 'POST'])
+@app.route('/formulario', methods=['GET', 'POST'])
 def mostrar_formulario():
     if request.method == 'POST':
         nombre = request.form['nombre']

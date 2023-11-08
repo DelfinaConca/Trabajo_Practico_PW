@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <link rel="stylesheet" href="formulario.css">
-    <title>Pagina oficial de donaciones - Realiza tu donacion </title>
+    <title>Pagina oficial de donaciones - Realiza tu donacion</title>
 
     <script>
-     function mostrarOpciones() {
+        function mostrarOpciones() {
             var tipoDonacion = document.querySelector('input[name="variedad"]:checked').value;
             var opcionesDinero = document.getElementById('opciones-dinero');
             var opcionesCryptos = document.getElementById('opciones-cryptos');
@@ -22,6 +21,7 @@
                 opcionesDinero.style.display = "none";
                 opcionesCryptos.style.display = "block";
                 opcionesDivisa.style.display = "none";
+                obtenerPrecioBitcoin(); // Llama a la función para obtener el precio de Bitcoin
             } else {
                 opcionesDinero.style.display = "none";
                 opcionesCryptos.style.display = "none";
@@ -29,186 +29,112 @@
             }
         }
 
-        function mostrarMensaje() {
-            var seleccionDivisa = document.querySelector('input[name="opciones-dinero"]:checked');
+        function obtenerPrecioBitcoin() {
+            const apiUrl = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd';
 
-            if (seleccionDivisa) {
-                var tipoPago = document.querySelectorAll('input[name="tipop"]');
-                var tarjetaSelect = document.getElementById('tarjeta');
-                var comentarios = document.querySelector('textarea[name="comentario"]').value;
-
-                
-                var tipoPagoSeleccionado;
-                for (var i = 0; i < tipoPago.length; i++) {
-                    if (tipoPago[i].checked) {
-                        tipoPagoSeleccionado = tipoPago[i].value;
-                        break;
-                    }
-                }
-
-                var tarjetaSeleccionada = tarjetaSelect.value;
-
-       
-                var mensaje = "Te redirigiremos a otra página para que realices tu pago online.";
-                alert(mensaje);
-
-            }
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const bitcoinPrice = data.bitcoin.usd;
+                    document.getElementById('crypto-data').innerHTML = `
+                        <h2>Precio de Bitcoin (USD): $${bitcoinPrice}</h2>`;
+                })
+                .catch(error => {
+                    console.error('Error al obtener datos de la API:', error);
+                    document.getElementById('crypto-data').textContent = 'Error al cargar datos de criptomonedas';
+                });
         }
     </script>
 </head>
-
 <body>
-    
-
     <header>
-        <h1>Doná, se parte del cambio </h1>
-        <p style="font-weight: bold;">Contribui con tu donacion aca!</p>
+        <h1>Doná, sé parte del cambio</h1>
+        <p style="font-weight: bold;">Contribuye con tu donación aquí</p>
         <form action="realizado.html"></form>
     </header>
-
-   
-
     <section>
-        <form method="POST" action="/form">
+        <form method="POST" action="/formulario">
             <fieldset>
                 <legend> Datos personales</legend>
-                <label for="nombre">
-                    Nombre:
-                </label>
-                <input type="text" name="nombre" tabindex="1">
-
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" tabindex="1" required>
                 <br>
-                <label for="apellido"> Apellido:</label>
-                <input type="text" name="apellido" tabindex="2">
-
+                <label for="apellido">Apellido:</label>
+                <input type="text" name="apellido" tabindex="2" required>
                 <br>
-                <label for="tel">Telefono:</label>
-                <input type="number" name="tel" tabindex="3">
-
+                <label for="tel">Teléfono:</label>
+                <input type="tel" name="tel" tabindex="3" required>
                 <br>
-                <label for="mail">Mail:</label>
-                <input type="email" name="mail" tabindex="4">
-
+                <label for="mail">Correo:</label>
+                <input type="email" name="mail" tabindex="4" required>
                 <br>
                 <br>
-
-                
-
-                
             </fieldset>
-
-
             <div>
-
                 <fieldset>
                     <legend>Tipo de donación</legend>
-        <input type="radio" name="variedad" value="dinero" onclick="mostrarOpciones()">Dinero
-        <input type="radio" name="variedad" value="cryptos" onclick="mostrarOpciones()">Cryptos
-        <br>
-        <div id="opciones-dinero" style="display: none;">
-            <p>Selecciona una opción:</p>
-            <input type="radio" name="opcionesDinero" value="dolares">Dólares
-            <input type="radio" name="opcionesDinero" value="pesos">Pesos Argentinos
-        </div>
-        <div id="opciones-cryptos" style="display: none;">
-            <div>
-                <div id="crypto-data">
-                </div>
-            
-                <script>
-                    const apiUrl = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd'; 
-
-                    <!--esta es la api de terceros-->
-
-                                    
-                    fetch(apiUrl)
-                        .then(response => response.json())
-                        .then(data => {
-                            const bitcoinPrice = data.bitcoin.usd;
-            
-                            document.getElementById('crypto-data').innerHTML = `
-                                <h2>Precio de Bitcoin (USD): $${bitcoinPrice}</h2>
-                            `;
-                        })
-                        .catch(error => {
-                            console.error('Error al obtener datos de la API:', error);
-                            document.getElementById('crypto-data').textContent = 'Error al cargar datos de criptomonedas';
-                        });
-                </script>
-
-            </div>
-            <p>Selecciona una criptomoneda:</p>
-            <input type="radio" name="opcionesCryptos" value="bitcoin">Bitcoin
-            <input type="radio" name="opcionesCryptos" value="ethereum">Ethereum
-            <input type="radio" name="opcionesCryptos" value="cardano">Cardano
-            <input type="radio" name="opcionesCryptos" value="tether">Tether
-            <input type="radio" name="opcionesCryptos" value="dogecoin">Dogecoin
-        </div>
-        <div id="opciones-divisa" style="display: none;">
-            <br>
-            <label for="tipopago">Tipo Pago:</label>
-            <input type="radio" name="tipop">Debito
-            <input type="radio" name="tipop">Credito
-            <br>
-            <label for="tarjeta">Tarjeta:</label>
-            <select name="tarjeta" id="tarjeta">
-                <option value="amex">Amex</option>
-                <option value="visa" selected>Visa</option>
-                <option value="master">Master</option>
-            </select>
-            <br>
-            <label for="comentario">Comentarios:</label>
-            <textarea name="comentario" id="" cols="15" rows="10" maxlength="255"></textarea>
-            <br>
-        </div>
-        <legend>Te redigiremos a otra página para que realices tu pago online!</legend>
-    </fieldset>
-    <button onclick="mostrarMensaje()">Continuar</button>
+                    <input type="radio" name="variedad" value="dinero" onclick="mostrarOpciones()" required> Dinero
+                    <input type="radio" name="variedad" value="cryptos" onclick="mostrarOpciones()" required> Cryptos
                     <br>
-                    <br>
-                    <input type="checkbox" name="variedad" value="ropa">Ropa
-                   
-                    <br>
-                    <br>
-                    <input type="checkbox" name="variedad" value="libros">Libros o juguetes
-                    
-                    <br>
-                    <br>
-                    <input type="checkbox" name="variedad" value="alimentos">Alimentos no perecederos
-                    
-                    <br>
-                    <br>
-                    <input type="checkbox" name="variedad" value="otros">Otros
-                    
-                    <br>
-                    <br>
-                   
-                   
-                    
+                    <div id="opciones-dinero" style="display: none;">
+                        <p>Selecciona una opción:</p>
+                        <input type="radio" name="opcionesDinero" value="dolares" required> Dólares
+                        <input type="radio" name="opcionesDinero" value="pesos" required> Pesos Argentinos
+                    </div>
+                    <div id="opciones-cryptos" style="display: none;">
+                        <div>
+                            <div id="crypto-data">
+                            </div>
+                            <button onclick="obtenerPrecioBitcoin()">Obtener precio de Bitcoin</button>
+                        </div>
+                        <p>Selecciona una criptomoneda:</p>
+                        <input type="radio" name="opcionesCryptos" value="bitcoin" required> Bitcoin
+                        <input type="radio" name="opcionesCryptos" value="ethereum" required> Ethereum
+                        <input type="radio" name="opcionesCryptos" value="cardano" required> Cardano
+                        <input type="radio" name="opcionesCryptos" value="tether" required> Tether
+                        <input type="radio" name="opcionesCryptos" value="dogecoin" required> Dogecoin
+                    </div>
+                    <div id="opciones-divisa" style="display: none;">
+                        <br>
+                        <label for="tipopago">Tipo Pago:</label>
+                        <input type="radio" name="tipop" value="debito" required> Débito
+                        <input type="radio" name="tipop" value="credito" required> Crédito
+                        <br>
+                        <label for="tarjeta">Tarjeta:</label>
+                        <select name="tarjeta" id="tarjeta" required>
+                            <option value="amex">Amex</option>
+                            <option value="visa" selected>Visa</option>
+                            <option value="master">Master</option>
+                        </select>
+                        <br>
+                        <label for="comentario">Comentarios:</label>
+                        <textarea name="comentario" id="comentario" cols="15" rows="10" maxlength="255"></textarea>
+                        <br>
+                    </div>
                 </fieldset>
-            
-            
-    
-        </div>
-
+            </div>
             <fieldset>
-                <legend> Completa aca la cantidad</legend>
-               
+                <legend>Fundación a la que quieres donar:</legend>
+                <br>
+                <label for="fundacion"></label>
+                <select id="fundacion" name="elemento">
+                    <option value="opcion1">Fundación Unicef</option>
+                    <option value="opcion2">Fundación Caritas</option>
+                    <option value="opcion3">Fundación Techo</option>
+                </select>
+                <br>
+                <br>
+            </fieldset>
+            <fieldset>
+                <legend>Completa aquí la cantidad</legend>
                 <br>
                 <label for="cantidad">Cantidad:</label>
-                <input type="number" name="cantidad" min="0"  step="0.01">
-
+                <input type="number" name="cantidad" min="0" step="0.01" required>
                 <br>
                 <br>
-
             </fieldset>
-
-            <input type="submit" value="Realizar donacion!">
-     
+            <input type="submit" value="Realizar donación">
         </form>
-
     </section>
-
-
 </body>
 </html>
