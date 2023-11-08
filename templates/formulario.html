@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="formulario.css">
+    <link rel="stylesheet" href="..//static/formulario.css">
     <title>Pagina oficial de donaciones - Realiza tu donacion</title>
 
     <script>
@@ -21,7 +21,7 @@
                 opcionesDinero.style.display = "none";
                 opcionesCryptos.style.display = "block";
                 opcionesDivisa.style.display = "none";
-                obtenerPrecioBitcoin(); // Llama a la función para obtener el precio de Bitcoin
+                obtenerPrecioBitcoin();
             } else {
                 opcionesDinero.style.display = "none";
                 opcionesCryptos.style.display = "none";
@@ -44,6 +44,20 @@
                     document.getElementById('crypto-data').textContent = 'Error al cargar datos de criptomonedas';
                 });
         }
+
+        function mostrarMensaje(event) {
+            event.preventDefault();
+            var form = document.querySelector('form');
+            form.style.display = "none"; 
+            var mensaje = document.createElement('p');
+            mensaje.textContent = "Donación Realizada, gracias por tu aporte";
+            document.body.appendChild(mensaje);
+
+            
+            setTimeout(function () {
+                window.location.href = "realizado.html";
+            }, 2000); 
+        }
     </script>
 </head>
 <body>
@@ -53,14 +67,14 @@
         <form action="realizado.html"></form>
     </header>
     <section>
-        <form method="POST" action="/formulario">
+        <form method="POST" action="/form" onsubmit="mostrarMensaje(event)">
             <fieldset>
                 <legend> Datos personales</legend>
                 <label for="nombre">Nombre:</label>
                 <input type="text" name="nombre" tabindex="1" required>
                 <br>
                 <label for="apellido">Apellido:</label>
-                <input type="text" name="apellido" tabindex="2" required>
+                <input type="text" name ="apellido" tabindex="2" required>
                 <br>
                 <label for="tel">Teléfono:</label>
                 <input type="tel" name="tel" tabindex="3" required>
@@ -133,7 +147,7 @@
                 <br>
                 <br>
             </fieldset>
-            <input type="submit" value="Realizar donación">
+            <a href="realizado.html" target="_blank" type="submit" value="Realizar donación">Realizar Donación</a>
         </form>
     </section>
 </body>
