@@ -86,7 +86,12 @@
           <label for="cantidad">Cantidad:</label>
           <input type="number" v-model="cantidad" min="0" step="0.01" required />
         </fieldset>
-        <input type="submit" value="Realizar donacion" />
+        <input type="submit" value="Validar Datos" /> <br> <br>
+         <router-link to="/thank-you">
+        <button type="submit">Realizar donación</button>
+      </router-link>
+        
+
       </form>
     </section>
   </div>
@@ -134,7 +139,7 @@ export default {
 </script>
 
 <style>
-body {
+. {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     margin: 0;
@@ -204,4 +209,18 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #0056b3;
 }
+
+button[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
 </style>

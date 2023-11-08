@@ -6,6 +6,7 @@ import QuienesSomos from './components/QuienesSomos';
 import SponsorsComponent from './components/SponsorsComponent';
 import FormularioComponent from './components/FormularioComponent';
 import FundacionesComponent from './components/FundacionesComponent';
+import ThankyouComponent from './components/ThankyouComponent';
 
 // Acá definimos las rutas
 const routes = [
@@ -44,6 +45,11 @@ const routes = [
         path: '/fundaciones',
         name: 'Fundaciones',
         component: FundacionesComponent
+    },
+    {
+        path: '/thank-you',
+        name: 'Thankyou',
+        component: ThankyouComponent
     },
 
 
