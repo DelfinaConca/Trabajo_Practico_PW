@@ -1,0 +1,70 @@
+<template>
+    
+</template>
+
+<script>
+
+</script>
+
+<style>
+.como-donar {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px;
+  }
+  
+  .como-donar h2 {
+    font-size: 24px;
+  }
+  
+  .como-donar p {
+    font-size: 16px;
+  }
+  
+  .como-donar ol {
+    list-style-type: decimal;
+    margin-left: 20px;
+  }
+  
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+</style>
