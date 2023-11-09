@@ -25,6 +25,10 @@
 
 export default {
 
+  beforeRouteEnter(to, from, next) {
+    document.title = 'Como Donar'; // Set your desired title
+    next();
+  },
 }
 </script>
 

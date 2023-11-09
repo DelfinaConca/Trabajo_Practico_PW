@@ -60,6 +60,10 @@ En resumen, donar dinero y bienes es una práctica que trasciende fronteras y cu
 
 export default {
 
+  beforeRouteEnter(to, from, next) {
+    document.title = 'Doná Online'; // Set your desired title
+    next();
+  },
 }
 </script>
 

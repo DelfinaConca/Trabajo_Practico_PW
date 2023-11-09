@@ -31,6 +31,10 @@
 
 export default {
 
+  beforeRouteEnter(to, from, next) {
+    document.title = 'Quienes Somos'; // Set your desired title
+    next();
+  },
 }
 </script>
 

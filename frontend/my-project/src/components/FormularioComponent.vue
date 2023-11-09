@@ -86,12 +86,11 @@
           <label for="cantidad">Cantidad:</label>
           <input type="number" v-model="cantidad" min="0" step="0.01" required />
         </fieldset>
-        <input type="submit" value="Validar Datos" /> <br> <br>
-         <router-link to="/thank-you">
+        <input type="submit" value="Validar y Guardar Datos" />
+        (IMPORTANTE: guardar los datos antes de realizar donación) <br> <br>
+        <router-link to="/thank-you">
         <button type="submit">Realizar donación</button>
       </router-link>
-        
-
       </form>
     </section>
   </div>
@@ -99,6 +98,10 @@
 
 <script>
 export default {
+  beforeRouteEnter(to, from, next) {
+    document.title = 'Formulario'; // Set your desired title
+    next();
+  },
   data() {
     return {
       nombre: '',
@@ -139,7 +142,7 @@ export default {
 </script>
 
 <style>
-. {
+body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     margin: 0;

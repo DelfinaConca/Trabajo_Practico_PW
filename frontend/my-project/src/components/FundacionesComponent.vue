@@ -1,5 +1,5 @@
 <template>
- <section>
+ <section clsss="fundaciones">
     <h3>Fundación Unicef</h3>
         <img src="../../public/logo-unicef.png" alt="UNICEF">
         <p>Se dedican a llevarle agua potable y comida a los pueblos de escasos recursos en África.</p>
@@ -24,7 +24,12 @@
 
 export default {
 
+  beforeRouteEnter(to, from, next) {
+    document.title = 'Nuestras Fundaciones'; // Set your desired title
+    next();
+  },
 }
+
 </script>
 
 

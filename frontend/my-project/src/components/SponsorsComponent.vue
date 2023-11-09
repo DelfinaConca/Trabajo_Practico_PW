@@ -26,6 +26,10 @@
 
 export default {
 
+  beforeRouteEnter(to, from, next) {
+    document.title = 'Sponsors'; // Set your desired title
+    next();
+  },
 }
 </script>
 

@@ -4,6 +4,13 @@
 </template>
 
 <script>
+export default {
+
+  beforeRouteEnter(to, from, next) {
+    document.title = 'Gracias por su aporte'; // Set your desired title
+    next();
+  },
+}
 </script>
 
 <style>

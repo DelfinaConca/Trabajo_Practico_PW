@@ -29,6 +29,10 @@
 
 export default {
 
+  beforeRouteEnter(to, from, next) {
+    document.title = 'Contacto'; // Set your desired title
+    next();
+  },
 }
 </script>
 
